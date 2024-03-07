@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhl7824du4uia"]
+
+[ext_resource type="Texture2D" uid="uid://c4mwsctf1y46x" path="res://assets/pong_ball.png" id="1_f2ghk"]
+[ext_resource type="Script" path="res://scenes/pong_ball.gd" id="1_u56sd"]
+[ext_resource type="Script" path="res://scenes/BounceHandler.gd" id="3_r4ixy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1rtd"]
+size = Vector2(14, 13)
+
+[node name="PongBall" type="Node2D"]
+script = ExtResource("1_u56sd")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_a1rtd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+texture = ExtResource("1_f2ghk")
+
+[node name="BounceHandler" type="Node2D" parent="."]
+script = ExtResource("3_r4ixy")

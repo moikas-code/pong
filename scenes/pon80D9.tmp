@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhl7824du4uia"]
+
+[ext_resource type="Texture2D" uid="uid://c4mwsctf1y46x" path="res://assets/pong_ball.png" id="1_f2ghk"]
+[ext_resource type="Script" path="res://scenes/pong_ball.gd" id="1_u56sd"]
+[ext_resource type="AudioStream" uid="uid://djm3xfg7sqt4e" path="res://assets/pong-blip.wav" id="3_45dt8"]
+[ext_resource type="Script" path="res://scenes/utility/bounce.gd" id="4_c4wcd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1rtd"]
+size = Vector2(14, 13)
+
+[node name="PongBall" type="CharacterBody2D" groups=["ball"]]
+motion_mode = 1
+script = ExtResource("1_u56sd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_a1rtd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+texture = ExtResource("1_f2ghk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_45dt8")
+
+[node name="Bounce" type="Node2D" parent="."]
+script = ExtResource("4_c4wcd")

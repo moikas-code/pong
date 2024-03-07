@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://df2wxwvx78u2u"]
+
+[ext_resource type="Script" path="res://scenes/ui/score.gd" id="1_t6svq"]
+
+[sub_resource type="SystemFont" id="SystemFont_t03hx"]
+font_names = PackedStringArray("Monospace")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_mnhkv"]
+font_names = PackedStringArray("Monospace")
+subpixel_positioning = 0
+
+[node name="Score" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t6svq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 71
+
+[node name="player_score" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_t03hx")
+theme_override_font_sizes/font_size = 64
+text = "0"
+
+[node name="ai_score" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_mnhkv")
+theme_override_font_sizes/font_size = 64
+text = "0"

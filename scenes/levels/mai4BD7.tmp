@@ -1,0 +1,125 @@
+[gd_scene load_steps=14 format=3 uid="uid://bndbga0uuu3lo"]
+
+[ext_resource type="PackedScene" uid="uid://cpd16k2cctokh" path="res://scenes/score_zone.tscn" id="1_h5p1o"]
+[ext_resource type="Script" path="res://scenes/managers/GameManager.gd" id="1_m80hn"]
+[ext_resource type="Script" path="res://scenes/levels/main.gd" id="1_uopjj"]
+[ext_resource type="PackedScene" uid="uid://bjd7bqy0g8lsi" path="res://scenes/player_paddle.tscn" id="1_vfc15"]
+[ext_resource type="PackedScene" uid="uid://pvyi84xpqjs7" path="res://scenes/pong_wall.tscn" id="2_ttcru"]
+[ext_resource type="PackedScene" uid="uid://db2piw6wh51xu" path="res://scenes/ai_paddle.tscn" id="3_d37pl"]
+[ext_resource type="PackedScene" uid="uid://nqo66o417ghv" path="res://scenes/managers/ball_manager.tscn" id="3_wwekj"]
+[ext_resource type="PackedScene" uid="uid://bhl7824du4uia" path="res://scenes/pong_ball.tscn" id="5_qlxge"]
+[ext_resource type="Texture2D" uid="uid://p5b26ra18bc7" path="res://assets/pong_divider.png" id="9_tt1f0"]
+[ext_resource type="PackedScene" uid="uid://df2wxwvx78u2u" path="res://scenes/ui/score.tscn" id="10_tegkk"]
+[ext_resource type="Texture2D" uid="uid://cdnrir4o5pcny" path="res://assets/up.png" id="11_fy68c"]
+[ext_resource type="AudioStream" uid="uid://bx6i04ckco5t6" path="res://assets/bg_song.wav" id="12_i7w22"]
+[ext_resource type="Texture2D" uid="uid://cyekqu56dvfq3" path="res://assets/down.png" id="12_msgqt"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_uopjj")
+
+[node name="LevelContainer" type="Node2D" parent="."]
+
+[node name="PongDivider" type="Sprite2D" parent="LevelContainer"]
+position = Vector2(571, 53)
+scale = Vector2(2, 1)
+texture = ExtResource("9_tt1f0")
+
+[node name="PongDivider2" type="Sprite2D" parent="LevelContainer"]
+position = Vector2(571, 182)
+scale = Vector2(2, 1)
+texture = ExtResource("9_tt1f0")
+
+[node name="PongDivider3" type="Sprite2D" parent="LevelContainer"]
+position = Vector2(571, 306)
+scale = Vector2(2, 1)
+texture = ExtResource("9_tt1f0")
+
+[node name="PongDivider4" type="Sprite2D" parent="LevelContainer"]
+position = Vector2(571, 451.955)
+scale = Vector2(2, 1)
+texture = ExtResource("9_tt1f0")
+
+[node name="PongDivider5" type="Sprite2D" parent="LevelContainer"]
+position = Vector2(571, 600)
+scale = Vector2(2, 1)
+texture = ExtResource("9_tt1f0")
+
+[node name="TileMap" type="TileMap" parent="LevelContainer"]
+format = 2
+
+[node name="ScoreZone" parent="LevelContainer" instance=ExtResource("1_h5p1o")]
+position = Vector2(-14, 11)
+zone_type = "Enemy"
+
+[node name="CollisionShape2D" parent="LevelContainer/ScoreZone" index="0"]
+position = Vector2(-14, 311)
+
+[node name="ScoreZone2" parent="LevelContainer" instance=ExtResource("1_h5p1o")]
+position = Vector2(1178, 13)
+
+[node name="CollisionShape2D" parent="LevelContainer/ScoreZone2" index="0"]
+position = Vector2(13, 313)
+
+[node name="Marker2D" type="Marker2D" parent="LevelContainer"]
+position = Vector2(576, 323)
+
+[node name="CameraContaier" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="CameraContaier"]
+position = Vector2(577, 323)
+
+[node name="ManagerContainer" type="Node2D" parent="."]
+
+[node name="GameManager" type="Node2D" parent="ManagerContainer" groups=["game_manager"]]
+script = ExtResource("1_m80hn")
+
+[node name="BallManager" parent="ManagerContainer" node_paths=PackedStringArray("spawn_point") instance=ExtResource("3_wwekj")]
+spawn_point = NodePath("../../LevelContainer/Marker2D")
+ball_scene = ExtResource("5_qlxge")
+
+[node name="EntityContainer" type="Node2D" parent="." groups=["entity_container"]]
+
+[node name="player_paddle" parent="EntityContainer" groups=["player"] instance=ExtResource("1_vfc15")]
+position = Vector2(50, 350)
+
+[node name="PongWall" parent="EntityContainer" instance=ExtResource("2_ttcru")]
+
+[node name="PongWall2" parent="EntityContainer" instance=ExtResource("2_ttcru")]
+position = Vector2(0, 630)
+
+[node name="ai_paddle" parent="EntityContainer" instance=ExtResource("3_d37pl")]
+position = Vector2(1102, 351)
+
+[node name="UIContainer" type="Node2D" parent="."]
+
+[node name="Score" parent="UIContainer" instance=ExtResource("10_tegkk")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = 571.0
+offset_top = 52.0
+offset_right = 571.0
+offset_bottom = 52.0
+grow_vertical = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_score = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="UIContainer"]
+position = Vector2(383, 583)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("11_fy68c")
+action = "up"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="UIContainer"]
+position = Vector2(710, 583)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("12_msgqt")
+action = "down"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_i7w22")
+
+[editable path="LevelContainer/ScoreZone"]
+[editable path="LevelContainer/ScoreZone2"]

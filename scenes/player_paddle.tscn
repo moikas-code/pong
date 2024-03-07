@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjd7bqy0g8lsi"]
+
+[ext_resource type="Texture2D" uid="uid://devfnuenwkao0" path="res://assets/player1_paddle.png" id="1_du7qb"]
+[ext_resource type="Script" path="res://scenes/player_paddle.gd" id="1_kfejy"]
+[ext_resource type="PackedScene" uid="uid://cyubnhaquaffc" path="res://scenes/handlers/player/input_handler.tscn" id="2_avucv"]
+[ext_resource type="PackedScene" uid="uid://dse6ao7hglkn8" path="res://scenes/handlers/movement_handler.tscn" id="4_k1wgs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qi2y"]
+size = Vector2(16, 64)
+
+[node name="player_paddle" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_kfejy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("1_du7qb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_3qi2y")
+
+[node name="InputHandler" parent="." instance=ExtResource("2_avucv")]
+
+[node name="MovementHandler" parent="." instance=ExtResource("4_k1wgs")]
+movement_speed = 250.0
+acceleration = 20.0
+deceleration = 8.0

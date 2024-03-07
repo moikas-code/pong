@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx65ds6r7n5ow"]
+
+[ext_resource type="Script" path="res://scenes/handlers/physics.gd" id="1_neppk"]
+
+[node name="Physics" type="Node2D"]
+script = ExtResource("1_neppk")

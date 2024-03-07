@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://3y6h6qjwkajs"]
+
+[ext_resource type="Script" path="res://scenes/handlers/AI/ai_brain.gd" id="1_cpiev"]
+
+[node name="AI_Brain" type="Node2D"]
+script = ExtResource("1_cpiev")

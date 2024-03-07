@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://nqo66o417ghv"]
+
+[ext_resource type="Script" path="res://scenes/managers/ball_manager.gd" id="1_og2sh"]
+
+[node name="BallManager" type="Node2D" groups=["ball_manager"]]
+script = ExtResource("1_og2sh")

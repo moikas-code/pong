@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://db2piw6wh51xu"]
+
+[ext_resource type="Script" path="res://scenes/ai_paddle.gd" id="1_b1i2d"]
+[ext_resource type="Texture2D" uid="uid://c42n132dp1c2v" path="res://assets/player2_paddle.png" id="2_h2r8t"]
+[ext_resource type="PackedScene" uid="uid://cyubnhaquaffc" path="res://scenes/handlers/player/input_handler.tscn" id="3_qghpc"]
+[ext_resource type="PackedScene" uid="uid://dse6ao7hglkn8" path="res://scenes/handlers/movement_handler.tscn" id="4_sslip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qi2y"]
+size = Vector2(16, 64)
+
+[node name="ai_paddle" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_b1i2d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("2_h2r8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_3qi2y")
+
+[node name="InputHandler" parent="." instance=ExtResource("3_qghpc")]
+
+[node name="MovementHandler" parent="." instance=ExtResource("4_sslip")]
+movement_speed = 250.0
+acceleration = 15.0
+deceleration = 8.0

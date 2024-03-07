@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://pvyi84xpqjs7"]
+
+[ext_resource type="Texture2D" uid="uid://cibwnmf4rqgkv" path="res://assets/pong_wall.png" id="1_oeqat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3go1c"]
+size = Vector2(1154, 16)
+
+[node name="PongWall" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578, 8)
+scale = Vector2(18.035, 1)
+texture = ExtResource("1_oeqat")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(578, 9)
+shape = SubResource("RectangleShape2D_3go1c")

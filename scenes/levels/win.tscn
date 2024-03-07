@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfea5f0o2qd42"]
+
+[ext_resource type="Script" path="res://scenes/levels/win-lose.gd" id="1_io8x7"]
+[ext_resource type="Texture2D" uid="uid://g7b54xawiklj" path="res://assets/pong-bg.png" id="2_q0vti"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u0fub"]
+
+[sub_resource type="SystemFont" id="SystemFont_btc7y"]
+font_names = PackedStringArray("Monospace")
+
+[node name="YouWin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_io8x7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -270.0
+offset_right = -3.0
+offset_bottom = 234.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_q0vti")
+expand_mode = 4
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 66
+theme_override_styles/separator = SubResource("StyleBoxEmpty_u0fub")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_btc7y")
+theme_override_font_sizes/font_size = 128
+text = "You Won!"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="start_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+
+[node name="Menu" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Menu"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_btc7y")
+theme_override_font_sizes/font_size = 32
+text = "moikas.com"
+horizontal_alignment = 1
