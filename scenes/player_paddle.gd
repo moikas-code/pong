@@ -1,5 +1,5 @@
-extends CharacterBody2D
-class_name Player
+extends CharacterEntity2D
+class_name PlayerPaddle
 
 @onready var player_paddle = $"."
 @onready var input_handler = $InputHandler
@@ -7,5 +7,5 @@ class_name Player
 
 
 func _physics_process(delta):
-	movement_handler.movement_handler(self,input_handler.movement_input(),delta)
+	movement_handler.movement_handler(self, input_handler.movement_input(), delta)
 	move_and_slide()
