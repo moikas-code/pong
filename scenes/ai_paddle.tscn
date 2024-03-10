@@ -9,15 +9,15 @@
 size = Vector2(16, 64)
 
 [node name="ai_paddle" type="CharacterBody2D"]
+position = Vector2(0, -32)
 motion_mode = 1
 script = ExtResource("1_b1i2d")
+entity_type = "CHARACTER"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -32)
 texture = ExtResource("2_h2r8t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_3qi2y")
 
 [node name="InputHandler" parent="." instance=ExtResource("3_qghpc")]

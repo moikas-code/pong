@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends CharacterEntity2D
 class_name AIPaddle
 
 @onready var input_handler = $InputHandler
