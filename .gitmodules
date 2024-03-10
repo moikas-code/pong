@@ -1,0 +1,3 @@
+[submodule "moi_modules"]
+	path = moi_modules
+	url = https://github.com/moikas-code/moi_modules.git
