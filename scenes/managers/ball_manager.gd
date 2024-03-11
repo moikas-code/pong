@@ -1,7 +1,6 @@
 extends Node2D
 class_name BallManager
 
-@onready var timer = $Timer
 
 @export var spawn_point : Marker2D = null
 @export var ball_scene : PackedScene = null
