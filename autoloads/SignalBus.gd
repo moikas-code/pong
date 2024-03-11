@@ -1,6 +1,6 @@
 extends Node
 
-signal on_player_ready(player:Player)
+signal on_player_ready(player:PlayerPaddle)
 signal on_player_scored
 signal on_ai_scored
 signal on_game_manager_ready(GSM:GameManager)
@@ -23,6 +23,6 @@ func emit_on_ai_scored()->void:
 func emit_on_player_scored()->void:
 	on_player_scored.emit()
 
-func emit_on_player_ready(player:Player)->void:
+func emit_on_player_ready(player:PlayerPaddle)->void:
 	on_player_ready.emit(player)
 
