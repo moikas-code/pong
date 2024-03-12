@@ -8,11 +8,11 @@ extends Node2D
 func movement_handler(character_body:CharacterBody2D, input_dir:Vector2,_delta:float):
 	if input_dir.y<0:
 		character_body.velocity.y = lerp(character_body.velocity.y,  -movement_speed,acceleration * _delta)
-		return
+		
 		
 	if input_dir.y>0:
 		character_body.velocity.y = lerp(character_body.velocity.y,  movement_speed,acceleration * _delta)
-		return
+		
 		
 	deceleration_handler(character_body,_delta)
 
